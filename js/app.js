@@ -3,7 +3,7 @@ new Vue({
   el: '#app',
   data: {
     products: [
-      { name: 'Audífono', price: 30000, stock: 3, image: 'https://via.placeholder.com/50' },
+      { name: 'Audífono', price: 30000, stock: 3, image: 'https://www.dimarsa.cl/media/catalog/product/m/a/marcasphilips27phlt101b-negro1jpeg_0.jpg' },
       { name: 'Mouse', price: 20000, stock: 5, image: 'https://via.placeholder.com/50' },
       { name: 'Teclado', price: 15000, stock: 10, image: 'https://via.placeholder.com/50' },
       { name: 'Gabinete', price: 35000, stock: 4, image: 'https://via.placeholder.com/50' },
