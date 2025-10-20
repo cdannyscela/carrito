@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos_carrito.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app" class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Productos</h3>
+        <div v-for="product in products" :key="product.name" class="card mb-2">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <img :src="product.image" class="product-img me-2">
+            <div>
+              <h5>{{ product.name }}</h5>
+              <p>Precio: ${{ product.price.toLocaleString() }}</p>
+              <p>Stock: {{ product.stock }}</p>
+            </div>
+            <button class="btn btn-primary" @click="addToCart(product)">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3>Carrito</h3>
+        <div v-if="cart.length === 0">No hay productos en el carrito.</div>
+        <ul class="list-group mb-3">
+          <li v-for="item in cart" :key="item.name" class="list-group-item d-flex justify-content-between align-items-center">
+            <img :src="item.image" class="product-img me-2">
+            <div>
+              <h5>{{ item.name }}</h5>
+              <p>Cantidad: {{ item.quantity }}</p>
+            </div>
+            <button class="btn btn-danger" @click="removeFromCart(item)">Remover</button>
+          </li>
+        </ul>
+        <h4>Total a pagar: ${{ total.toLocaleString() }}</h4>
+      </div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
